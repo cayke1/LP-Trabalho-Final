@@ -90,6 +90,7 @@ void main(void) {
         printf("\n\nDeseja imprimir outro relatorio?");
         printf("\n1 - Sim");
         printf("\n2 - Não\n");
+        scanf("%d", &repetir);
         if(repetir != 1) {
             break;
         }

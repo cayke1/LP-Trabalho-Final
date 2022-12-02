@@ -4,7 +4,7 @@
 // j = pedido
 
 void main(void) {
-    int cliente[2][10][1], i, j = 0, k, l, produto[2][10], quantidade, repetir, tipoRelatorio;
+    int quantidade[2][10], i, j = 0, k, l, produto[2][10], repetir, tipoRelatorio;
     int numCliente, numPedido, cidade[2], totalPedidos[2], menos1t;
     float frete[2][10], peso[2][10], mediaPedidos, pesoTotal, pesoCliente[2];
 
@@ -22,11 +22,10 @@ void main(void) {
                 printf("\nProduto inválido!");
                 break;
             }
-            quantidade = montante();
-            cliente[i][j][0] = quantidade;
-            peso[i][j] = calcularPeso(produto[i][j], quantidade);
+            quantidade[i][j] = montante();
+            peso[i][j] = calcularPeso(produto[i][j], quantidade[i][j]);
             pesoCliente[i] = pesoCliente[i] + peso[i][j];
-            frete[i][j] = calcularFrete(peso[i][j], cidade[i], cliente[i][j][0]);
+            frete[i][j] = calcularFrete(peso[i][j], cidade[i], quantidade[i][j]);
             printf("\n\nDeseja realizar mais um pedido?");
             printf("\n1 - Sim");
             printf("\n2 - Não\n");
@@ -57,7 +56,7 @@ void main(void) {
                 printf("\nCliente %d", numCliente);
                 printf("\nPedido %d", numPedido);
                 printf("\nProduto %d", produto[numCliente - 1][numPedido - 1]);
-                printf("\nQuantidade %d", cliente[numCliente - 1][numPedido - 1][0]);
+                printf("\nQuantidade %d", quantidade[numCliente - 1][numPedido - 1]);
                 printf("\nFrete %.2f", frete[numCliente - 1][numPedido - 1]);
             }
         }   
@@ -86,6 +85,13 @@ void main(void) {
                     }
                 }
             }
+        }
+
+        printf("\n\nDeseja imprimir outro relatorio?");
+        printf("\n1 - Sim");
+        printf("\n2 - Não\n");
+        if(repetir != 1) {
+            break;
         }
     } 
 }

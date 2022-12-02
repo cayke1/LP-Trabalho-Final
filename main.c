@@ -3,10 +3,15 @@
 // i = cliente
 // j = pedido
 
+int opcao();
+int montante();
+float calcularFrete(float peso, int cidade, int pacotes);
+float calcularPeso(int quantidade, int tipo);
+
 void main(void) {
     int quantidade[2][10], i, j = 0, k, l, produto[2][10], repetir, tipoRelatorio;
     int numCliente, numPedido, cidade[2], totalPedidos[2], menos1t;
-    float frete[2][10], peso[2][10], mediaPedidos, pesoTotal, pesoCliente[2];
+    float frete[2][10], peso[2][10], pesoTotal, pesoCliente[2];
 
     for (i = 0; i < 2; i++) {
         printf("Cliente %d\n", i + 1);
@@ -15,7 +20,8 @@ void main(void) {
         printf("\n2 - Porto Nacional\n");
         scanf("%d", &cidade[i]);
         pesoCliente[i] = 0;
-        while(k = 1) {
+        k = 1;
+        while(k == 1) {
             printf("\nPedido %d", j + 1);
             produto[i][j] = opcao();
             if(produto[i][j] != 1 && produto[i][j] != 2 && produto[i][j] != 3) {
@@ -30,7 +36,7 @@ void main(void) {
             printf("\n1 - Sim");
             printf("\n2 - Não\n");
             scanf("%d", &k);
-            if(j = 9) {
+            if(j == 9) {
                 k = 2;
                 printf("\nLimite de pedidos atingido!");
                 totalPedidos[i] = j + 1;
@@ -55,7 +61,21 @@ void main(void) {
             } else {
                 printf("\nCliente %d", numCliente);
                 printf("\nPedido %d", numPedido);
-                printf("\nProduto %d", produto[numCliente - 1][numPedido - 1]);
+                switch (produto[numCliente - 1][numPedido - 1])
+                {
+                case 1:
+                    printf("\nProduto: Argamassa AC3 (20kg)");
+                    break;
+                case 2:
+                    printf("\nProduto: Argamassa AC2 (20kg)");
+                    break;
+                case 3:
+                    printf("\nProduto: Rejunte (5kg)");
+                    break;
+                default:
+                    printf("\nProduto inválido!");
+                    break;
+                }
                 printf("\nQuantidade %d", quantidade[numCliente - 1][numPedido - 1]);
                 printf("\nFrete %.2f", frete[numCliente - 1][numPedido - 1]);
             }
@@ -80,7 +100,7 @@ void main(void) {
             printf("\nVendidos %.2fkg de produtos", pesoTotal);
             for (i = 0; i < 2; i++) {
                 for(j = 0; j < 10; j++) {
-                    if(peso[i][j] < 1000) {
+                    if(peso[i][j] < 1000 && peso[i][j] > 0) {
                         printf("\nO pedido %d do Cliente %d tem menos de 1000kg", j + 1, i + 1);
                     }
                 }
@@ -120,11 +140,11 @@ int montante() {
 
 float calcularFrete(float peso, int cidade, int pacotes) {
     float frete;
-    if(peso >= 1000) {
+    if(peso <= 1000) {
         if(peso > 2000) {
             frete = 2 * pacotes;
         } else {
-            if(cidade = 1) {
+            if(cidade == 1) {
                 frete = 100;
             } else {
                 frete = 200;
@@ -138,9 +158,11 @@ float calcularFrete(float peso, int cidade, int pacotes) {
 }
 
 float calcularPeso(int quantidade, int tipo) {
+    float peso;
     if(tipo == 1 || tipo == 2) {
-        return quantidade * 20;
+        peso = quantidade * 20;
     } else {
-        return quantidade * 5;
+        peso = quantidade * 5;
     }
+    return peso;
 }

@@ -100,7 +100,7 @@ void main(void) {
             printf("\nVendidos %.2fkg de produtos", pesoTotal);
             for (i = 0; i < 2; i++) {
                 for(j = 0; j < 10; j++) {
-                    if(peso[i][j] < 1000 && peso[i][j] > 0) {
+                    if(peso[i][j] > 0 && peso[i][j] < 1000) {
                         printf("\nO pedido %d do Cliente %d tem menos de 1000kg", j + 1, i + 1);
                     }
                 }

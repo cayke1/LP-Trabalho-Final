@@ -10,7 +10,7 @@ float calcularPeso(int quantidade, int tipo);
 
 void main(void) {
     int quantidade[2][10], i, j = 0, k, produto[2][10], repetir, tipoRelatorio;
-    int numCliente, numPedido, cidade[2], totalPedidos[2], menos1t;
+    int numCliente, numPedido, cidade[2], totalPedidos[2], menos1t[2][10];
     float frete[2][10], peso[2][10], pesoTotal, pesoCliente[2];
 
     for (i = 0; i < 2; i++) {
@@ -29,7 +29,10 @@ void main(void) {
                 break;
             }
             quantidade[i][j] = montante();
-            peso[i][j] = calcularPeso(produto[i][j], quantidade[i][j]);
+            peso[i][j] = calcularPeso(quantidade[i][j], produto[i][j]);
+            if (peso[i][j] > 0 && peso[i][j] < 1000) {
+                menos1t[i][j] = 1;
+            }
             pesoCliente[i] = pesoCliente[i] + peso[i][j];
             frete[i][j] = calcularFrete(peso[i][j], cidade[i], quantidade[i][j]);
             printf("\n\nDeseja realizar mais um pedido?");
@@ -100,7 +103,7 @@ void main(void) {
             printf("\nVendidos %.2fkg de produtos", pesoTotal);
             for (i = 0; i < 2; i++) {
                 for(j = 0; j < 10; j++) {
-                    if(peso[i][j] > 0 && peso[i][j] < 1000) {
+                    if(menos1t[i][j] == 1) {
                         printf("\nO pedido %d do Cliente %d tem menos de 1000kg", j + 1, i + 1);
                     }
                 }

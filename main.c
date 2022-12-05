@@ -9,7 +9,7 @@ float calcularFrete(float peso, int cidade, int pacotes);
 float calcularPeso(int quantidade, int tipo);
 
 void main(void) {
-    int quantidade[2][10], i, j = 0, k, l, produto[2][10], repetir, tipoRelatorio;
+    int quantidade[2][10], i, j = 0, k, produto[2][10], repetir, tipoRelatorio;
     int numCliente, numPedido, cidade[2], totalPedidos[2], menos1t;
     float frete[2][10], peso[2][10], pesoTotal, pesoCliente[2];
 

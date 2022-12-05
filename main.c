@@ -80,7 +80,11 @@ void main(void) {
                     break;
                 }
                 printf("\nQuantidade %d", quantidade[numCliente - 1][numPedido - 1]);
-                printf("\nFrete %.2f", frete[numCliente - 1][numPedido - 1]);
+                if(frete[numCliente - 1][numPedido - 1] > 0) {
+                    printf("\nFrete R$%.2f", frete[numCliente - 1][numPedido - 1]);
+                } else {
+                    printf("\nFrete grátis");
+                }
             }
         }   
         if (tipoRelatorio == 2) {
@@ -143,7 +147,7 @@ int montante() {
 
 float calcularFrete(float peso, int cidade, int pacotes) {
     float frete;
-    if(peso <= 1000) {
+    if(peso >= 1000) {
         if(peso > 2000) {
             frete = 2 * pacotes;
         } else {

@@ -1,4 +1,4 @@
-#Desafio
+<h1>Desafio</h1>
 Uma fábrica de argamassas vende 3 produtos: argamassa AC3 20kg, argamassa AC2 20kg e rejunte
 5kg. Suas entregas são feitas em Palmas ou Porto Nacional. Durante o último ano, esta fábrica manteve registros de pedidos de 2 grandes clientes. Cada cliente fez um número indeterminado de pedidos (no máximo 10), sendo que cada pedido tem o tipo do produto, a quantidade de pacotes e a localidade da entrega.
 Faça um programa em Linguagem C que leia os dados dos pedidos de cada cliente e imprima um
@@ -17,7 +17,7 @@ Obs.:
 frete é R$ 100,00 para Palmas e 200,00 para Porto Nacional. Se tiver mais que 2000kg, o valor do
 frete será 2 reais por pacote.
 
-##Etapas de resolução
+<h2>Etapas de resolução</h2>
 
 <h4>1. Matrizes e laços</h4>
 As matrizes (unidimensionais e bidimensionais) e laços de repetição utilizados para guardar os valores de entrada de cada cliente na "mesma variável".
@@ -46,7 +46,8 @@ Como o próprio nome sugere, esta função é utilizada para selecionar o produt
 
 <img src="./docsImages/quantity.png">
 
-Utilizada para informar a quantidade do produto selecionado no pedido em específico
+Utilizada para informar a quantidade do produto selecionado no pedido em específico.
+
 <h5>2.3: Calcular Frete</h5>
 
 <img src="./docsImages/shipping.png">
@@ -57,4 +58,4 @@ Utilizada para calcular o frete baseado no peso (referente ao pedido), cidade e 
 
 <img src="./docsImages/weight.png">
 
-Calcula o peso baseado na quantidade e no tipo de produto (referente ao pedido)
+Calcula o peso baseado na quantidade e no tipo de produto (referente ao pedido).

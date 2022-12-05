@@ -3,12 +3,16 @@ Uma fábrica de argamassas vende 3 produtos: argamassa AC3 20kg, argamassa AC2 2
 5kg. Suas entregas são feitas em Palmas ou Porto Nacional. Durante o último ano, esta fábrica manteve registros de pedidos de 2 grandes clientes. Cada cliente fez um número indeterminado de pedidos (no máximo 10), sendo que cada pedido tem o tipo do produto, a quantidade de pacotes e a localidade da entrega.
 Faça um programa em Linguagem C que leia os dados dos pedidos de cada cliente e imprima um
 dos seguintes relatórios:
+
 - [x] Relatório por pedido: dado o número do cliente e do pedido, mostre o tipo e a quantidade do
 produto, a localidade e o valor do frete;
+
 - [x] Relatório por cliente: dado o número do cliente mostre a média de peso dos seus pedidos e o
 número de pedidos feitos no período;
+
 - [x] Relatório geral: mostre quantos kg de material foram vendidos no período e quais pedidos
 tem menos de 1000kg;
+
 - [x] Após imprimir um relatório, deve ser possível ao usuário imprimir outro caso queira;
 
 

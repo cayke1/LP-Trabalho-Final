@@ -1,17 +1,14 @@
 #include <stdio.h>
 
-// i = cliente
-// j = pedido
-
 int opcao();
 int montante();
 float calcularFrete(float peso, int cidade, int pacotes);
 float calcularPeso(int quantidade, int tipo);
 
 void main(void) {
-    int quantidade[2][10], i, j = 0, k, produto[2][10], repetir, tipoRelatorio;
+    int quantidade[2][10], i, j, k, produto[2][10], repetir, tipoRelatorio;
     int numCliente, numPedido, cidade[2], totalPedidos[2], menos1t[2][10];
-    float frete[2][10], peso[2][10], pesoTotal, pesoCliente[2];
+    float frete[2][10], peso[2][10], pesoTotal, pesoCliente[2], mediaPesoPedidos[2];
 
     for (i = 0; i < 2; i++) {
         printf("Cliente %d\n", i + 1);
@@ -21,6 +18,7 @@ void main(void) {
         scanf("%d", &cidade[i]);
         pesoCliente[i] = 0;
         k = 1;
+        j = 0;
         while(k == 1) {
             printf("\nPedido %d", j + 1);
             produto[i][j] = opcao();
@@ -42,10 +40,11 @@ void main(void) {
             if(j == 9) {
                 k = 2;
                 printf("\nLimite de pedidos atingido!");
-                totalPedidos[i] = j + 1;
+                totalPedidos[i] = 10;
             } else {
+                totalPedidos[i] = j + 1;
                 j++;
-            } 
+            }
         }
     }
 
@@ -90,12 +89,14 @@ void main(void) {
         if (tipoRelatorio == 2) {
                 printf("\nInsira o numero do cliente \n");
                 scanf("%d", &numCliente);
+                mediaPesoPedidos[numCliente - 1] = pesoCliente[numCliente - 1] / totalPedidos[numCliente - 1];
                 if(numCliente > 2) {
                     printf("\nCLiente Invalido!");
                     break;
                 } else {
+                    mediaPesoPedidos[numCliente - 1] = (pesoCliente[numCliente - 1] / totalPedidos[numCliente - 1]);
                     printf("\nCliente %d", numCliente);
-                    printf("\nMedia de pedidos %.2f", pesoCliente[numCliente - 1] / totalPedidos[numCliente - 1]);
+                    printf("\nMedia de peso dos pedidos %.2f", mediaPesoPedidos[numCliente - 1]);
                     printf("\nTotal de pedidos do cliente %d", totalPedidos[numCliente - 1]);
                 }
         }
